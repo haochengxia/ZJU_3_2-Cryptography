@@ -2,7 +2,7 @@
 
 # Part 1 proof of key expandasion
 
-from pysm4 import encrypt, decrypt, get_round_keys, reduction_mk
+from pysm4 import encrypt, decrypt, get_round_keys, reduction_mk, encrypt_ecb, decrypt_ecb
 
 clear_num = 0x0123456789abcdeffedcba9876543210
 mk = 0x0123456789abcdeffedcba9876543210
@@ -21,3 +21,13 @@ print("Reduction plaintext equals to origin plaintext:")
 print(flag)
 
 print(hex(re_mk))
+
+# Part 3 test 4 billion words
+one_word = 'word'
+four_billion_words = 4000000000 * one_word
+key = 'hello, world!'
+hash_plain_text = hash(four_billion_words)
+cipher_text = encrypt_ecb(four_billion_words, key)
+print("decrypt done")
+hash_decrypt_text = hash(decrypt_ecb(cipher_text, key))
+print(hash_decrypt_text == hash_plain_text)

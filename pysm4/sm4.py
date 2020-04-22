@@ -414,6 +414,7 @@ def encrypt_cbc(plain_text, key, iv):
     :param key: 密钥, 小于等于16字节
     :param iv: 初始化向量, 小于等于16字节
     """
+    
     plain_text = _padding(plain_text, mode=SM4_ENCRYPT)
     if plain_text is None:
         return

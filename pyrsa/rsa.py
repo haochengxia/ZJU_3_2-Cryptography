@@ -16,31 +16,20 @@ else:
 
 E_FMT = 'UTF8'
 
-# 加密
-SM4_ENCRYPT = 1
-# 解密
-SM4_DECRYPT = 0
 
 
 def encrypt(plain_num, e, n):
     """
-    SM4加密算法由32次迭代运算和1次反序变换R组成.
-    明文输入为(X0, X1, X2, X3), 每一项4byte, 密文输出为(Y0, Y1, Y2, Y3), 每一项4byte
-    轮密钥为rki, i=0,1,...,32, 4byte, 运算过程如下:
-    1). 32次迭代运算: Xi+4 = F(Xi, Xi+1, Xi+2, Xi+3, rki), i=0,1,...,32
-    2). 反序变换: (Y0, Y1, Y2, Y3) = (X35, X34, X33, X32)
-    :param clear_num: 明文, 16byte
-    :param mk: 密钥, 16byte
+    rsa encrypt 加密
+    输入明文和私钥
     """
     return _crypt(plain_num, e ,n)
 
 
 def decrypt(cipher_num, d ,n):
     """
-    SM4解密算法, 解密变换与加密变换结构相同, 不同的仅是轮密钥的使用顺序.
-    解密时轮密钥使用顺序为(rk31,rk30,...,rk0)
-    :param cipher_num: 密文, 16byte
-    :param mk: 密钥, 16byte
+    rsa decrypt 解密
+    输入密文和公钥
     """
     return _crypt(cipher_num, d ,n)
 
