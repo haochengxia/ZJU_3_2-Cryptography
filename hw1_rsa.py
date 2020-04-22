@@ -10,4 +10,4 @@ d = gen_d(p,q,e)
 print('The key pair you chosed is: {}'.format([e,d]))
 num = 10
 cipher_num = encrypt(num,e,n)
-print(decrypt(cipher_num,d,n))
+print("decrypted text equals plain text?",num == decrypt(cipher_num,d,n))

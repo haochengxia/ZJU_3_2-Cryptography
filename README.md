@@ -1,5 +1,14 @@
 # ZJU_3_2 Cryptography
 
+## How to run
+
+```bash
+python3 hw1_sm4.py
+python3 hw1_rsa.py
+```
+
+
+
 ## Reference 
 [1][pysm4](https://github.com/yang3yen/pysm4)
 
